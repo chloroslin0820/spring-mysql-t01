@@ -3,6 +3,7 @@ package com.mysql_springboot_thymeleaf_t01.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.ModelAndView;
@@ -10,20 +11,17 @@ import org.springframework.web.servlet.ModelAndView;
 import com.mysql_springboot_thymeleaf_t01.entity.Employee;
 import com.mysql_springboot_thymeleaf_t01.repository.EmployeeRepository;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 
 
-@RestController
-@RequestMapping("/")
+@Controller
 public class employeeController {
     
     @Autowired
     private EmployeeRepository eRepo;
 
-    @GetMapping({"/showEmployees", "/", "/list"})
+    @GetMapping({"/showEmployees", "/"})
     public ModelAndView showEmployees() {
         ModelAndView mav = new ModelAndView("list-employees");
         List<Employee> list = eRepo.findAll();
@@ -42,7 +40,7 @@ public class employeeController {
     @PostMapping("/saveEmployee")
     public String saveEmployee(@ModelAttribute Employee employee) {
         eRepo.save(employee);
-        return "redirect:/list";
+        return "redirect:/";
     }
 
     @GetMapping({"/showUpdateForm"})
@@ -56,7 +54,7 @@ public class employeeController {
     @GetMapping({"/deleteEmployee"})
     public String deleteEmployee(@RequestParam Long employeeId) {
         eRepo.deleteById(employeeId);
-        return "redirect:/list";
+        return "redirect:/";
     }
     
 }
