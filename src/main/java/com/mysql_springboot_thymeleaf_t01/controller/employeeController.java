@@ -11,11 +11,13 @@ import org.springframework.web.servlet.ModelAndView;
 import com.mysql_springboot_thymeleaf_t01.entity.Employee;
 import com.mysql_springboot_thymeleaf_t01.repository.EmployeeRepository;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
 
 @Controller
+@RequestMapping("/")
 public class employeeController {
     
     @Autowired
