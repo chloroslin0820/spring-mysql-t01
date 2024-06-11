@@ -3,7 +3,6 @@ package com.mysql_springboot_thymeleaf_t01.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.ModelAndView;
@@ -13,10 +12,11 @@ import com.mysql_springboot_thymeleaf_t01.repository.EmployeeRepository;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 
 
-@Controller
+@RestController
 @RequestMapping("/")
 public class employeeController {
     
